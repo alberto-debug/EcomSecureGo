@@ -2,6 +2,7 @@ package api
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -23,6 +24,8 @@ func NEWAPIServer(addr string, db *sql.DB) *APIServer {
 func (s *APIServer) Run() error {
 	router := mux.NewRouter()
 	subrouter := router.Path("/api/v1").Subrouter()
+
+	fmt.Println("Alberto junior")
 
 	log.Println("Listening on", s.addr)
 
