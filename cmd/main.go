@@ -1,8 +1,15 @@
 package main
 
-import "github.com/alberto-debug/EcomSecureGo/cmd/api"
+import (
+	"log"
+
+	"github.com/alberto-debug/EcomSecureGo/cmd/api"
+)
 
 func main() {
 	server := api.NEWAPIServer(":8080", nil)
-	server.Run()
+
+	if err := server.Run(); err != nil {
+		log.Fatal(err)
+	}
 }

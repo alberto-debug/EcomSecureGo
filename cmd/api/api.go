@@ -6,6 +6,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+
+	"github.com/alberto-debug/EcomSecureGo/service/user"
 )
 
 type APIServer struct {
@@ -23,6 +25,9 @@ func NEWAPIServer(addr string, db *sql.DB) *APIServer {
 func (s *APIServer) Run() error {
 	router := mux.NewRouter()
 	subrouter := router.Path("/api/v1").Subrouter()
+
+	userHandler := user.NEwHandler()
+	userHandler.RegisterRoutes(subrouter)
 
 	log.Println("Listening on", s.addr)
 
