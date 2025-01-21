@@ -14,7 +14,7 @@ func NEwHandler() *Handler {
 
 func (h *Handler) RegisterRoutes(router *mux.Router) {
 	router.HandleFunc("/login", h.handlerLogin).Methods("POST")
-	router.HandleFunc("/register", h.handlerLogin).Methods("POST")
+	router.HandleFunc("/register", h.handlerRegister).Methods("POST")
 }
 
 func (h *Handler) handlerLogin(w http.ResponseWriter, r *http.Request) {

@@ -6,3 +6,7 @@ test:
 
 run: build
 	@./bin/GoSecureAuth
+
+kill:
+	@fuser -k 8080/tcp || true
+
