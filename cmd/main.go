@@ -20,8 +20,11 @@ func main() {
 		AllowNativePasswords: true,
 		ParseTime:            true,
 	})
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	server := api.NEWAPIServer(":8080", nil)
+	server := api.NEWAPIServer(":8080", db)
 
 	if err := server.Run(); err != nil {
 		log.Fatal(err)
