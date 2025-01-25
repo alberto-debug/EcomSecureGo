@@ -15,6 +15,9 @@ type Config struct {
 	DBName     string
 }
 
+// global variable to call all envs
+var Envs = initConfig()
+
 func initConfig() Config {
 	return Config{
 		PublicHost: getEnv("PUBLIC_HOST", "http://localhost"),

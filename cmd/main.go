@@ -6,15 +6,16 @@ import (
 	"github.com/go-sql-driver/mysql"
 
 	"github.com/alberto-debug/EcomSecureGo/cmd/api"
+	"github.com/alberto-debug/EcomSecureGo/config"
 	"github.com/alberto-debug/EcomSecureGo/db"
 )
 
 func main() {
 	db, err := db.MySQLStorage(mysql.Config{
-		User:                 "root",
-		Passwd:               "",
-		Addr:                 "127.0.1:3306",
-		DBName:               "ecom",
+		User:                 config.Envs.DBName,
+		Passwd:               config.Envs.DBPassword,
+		Addr:                 config.Envs.DBAddress,
+		DBName:               config.Envs.DBName,
 		Net:                  "tcp",
 		AllowNativePasswords: true,
 		ParseTime:            true,
